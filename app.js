@@ -10,13 +10,31 @@
 
 // c) Adding a companion to “Robin” called "Leo".
    
+    // const adventurer = {
+    //     name: "Robin",
+    //     health: 10,
+    //     inventory: ["sword", "potion", "artifact"],
+    //     companion: {
+    //         name: "Leo",
+    //         type: "Cat"
+    //     }
+    // }
+
+
+// d) Adding a companion to “Robin” called "Leo".
+   
     const adventurer = {
         name: "Robin",
         health: 10,
         inventory: ["sword", "potion", "artifact"],
         companion: {
             name: "Leo",
-            type: "Cat"
+            type: "Cat",
+            companion: {
+                name: "Frank",
+                type: "Flea",
+                belongings: ["Hat","Sunglasses"]
+            }
         }
     }
 
