@@ -2,11 +2,23 @@
 //Part 1: Humble Beginnings
 // a) Creating adventurer “Robin.”
 
+    // const adventurer = {
+    //     name: "Robin",
+    //     health: 10,
+    //     inventory: ["sword", "potion", "artifact"]
+    //     }
+
+// c) Adding a companion to “Robin” called "Leo".
+   
     const adventurer = {
         name: "Robin",
         health: 10,
-        inventory: ["sword", "potion", "artifact"]
+        inventory: ["sword", "potion", "artifact"],
+        companion: {
+            name: "Leo",
+            type: "Cat"
         }
+    }
 
 // b) Loop through adventurer Robin's inventory.
 
@@ -17,5 +29,6 @@
         }
 
 
-        
+// b) Loop through adventurer Robin's inventory.
+
 
