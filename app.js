@@ -133,35 +133,77 @@
         }
     }
 
+// m) Creating a factory by "AdventurerFactory" class name.
+
+    class AdventurerFactory {
+        constructor (role) {
+        this.role = role;
+        this.adventurers = [];
+        }
+        generate (name) {
+        const newAdventurer = new Adventurer(name, this.role);
+        this.adventurers.push(newAdventurer);
+        //Returning newly created Robin object
+        return newAdventurer;
+        }
+        findByIndex (index) {
+        return this.adventurers[index];
+        }
+        findByName (name) {
+        return this.adventurers.find((a) => a.name === name);
+        }
+    }
+
+
 // g) Change the declaration of Robin.
     console.log ("Creating Robin");
     console.log ("==============");
-    
-    const robin = new Adventurer ("Robin", "Fighter");
-    console.log (robin);
+    console.log ("Robin is newly created in Part:5 (below) as a Healer");
 
+    // const robin = new Adventurer ("Robin", "Fighter");
+    // console.log (robin);
 
-// h) Change the declaration of Leo.
-    console.log ("Creating Leo");
-    console.log ("============");
-
-    const leo = new Companion ("Leo", "Cat");
-    console.log (leo);
-
-// i) Change the declaration of Frank.
-    console.log ("Creating Frank");
-    console.log ("==============");
-
-    const frank = new Companion ("Frank", "Flea", ["small hat", "sunglasses"]);
-    console.log (frank);
-
- 
-    
+   
 //=======================
 //Part 04: Class Uniforms
 //=======================
 
 // l) Creating static variables called max_health and roles in the Adventurer class.
 
+  
+//==========================
+//Part 05: Gather your Party
+//==========================
 
+// m) Creating a factory by "AdventurerFactory" class name (see above).
+    
+    const healers = new AdventurerFactory("Healer");
+    const robin = healers.generate("Robin");
+    
+    //console.log(robin);
 
+ // h) Change the declaration of Leo.
+    console.log ("Creating Leo");
+    console.log ("============");
+
+    const leo = new Companion ("Leo", "Cat");
+    //console.log (leo);
+
+ // i) Change the declaration of Frank.
+    console.log ("Creating Frank");
+    console.log ("==============");
+
+    const frank = new Companion ("Frank", "Flea", ["small hat", "sunglasses"]);
+    //console.log (frank);
+
+    // Assigning Leo as a companion to Robin
+robin.companion = leo;
+
+// Assigning Frank as a companion to Leo
+leo.companion = frank;
+
+console.log(robin);
+console.log(robin.companion); // This should show Leo with Frank as a companion
+console.log(robin.companion.companion); // This should show Frank
+
+////////////////////////////////////////////////////////////////////////////////
