@@ -66,6 +66,10 @@
 // f) Making the class Character and adding data to that.
 
     class Character {
+
+        // j) Defining a static variable
+        static max_health = 100;
+
         constructor (name) {
         this.name = name;
         this.health = 100;
@@ -96,14 +100,19 @@
 // g) Making the class Character and adding data to that.
 
     class Adventurer extends Character {
-        constructor (name, role) {
-        super(name);
-
-        // Adventurers have specialized roles.
-        this.role = role;
-
-        // Every adventurer starts with a bed and 50 gold coins.
-        this.inventory.push("bedroll", "50 gold coins");
+        // k) Defining a static variable 
+        static roles = ["Fighter", "Healer", "Wizard"];
+        
+        constructor (name,role) {
+            // Check if the passed roles are valid
+            if (Adventurer.roles.includes(role)) {
+                super(name);
+                this.role = role;
+                // Every adventurer starts with a bed and 50 gold coins.
+                this.inventory.push("bedroll", "50 gold coins");
+            } else {
+                throw new Error(`Invalid role: ${role}. Valid roles are: ${Adventurer.roles.join(", ")}`);
+            }      
         }
 
         // Adventurers have the ability to scout ahead of them.
@@ -128,7 +137,7 @@
     console.log ("Creating Robin");
     console.log ("==============");
     
-    const robin = new Adventurer ("Robin", "Leader");
+    const robin = new Adventurer ("Robin", "Fighter");
     console.log (robin);
 
 
@@ -147,6 +156,12 @@
     console.log (frank);
 
  
+    
+//=======================
+//Part 04: Class Uniforms
+//=======================
+
+// l) Creating static variables called max_health and roles in the Adventurer class.
 
 
 
